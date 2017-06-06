@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+	<script type="text/javascript">
+		function fuck1(input){
+			input.style.border = "blue";
+			input.style.width = "1px";
+		}
+		function fuck2(input){
+			input.style.border = "black";
+			input.style.width = "1px";
+		}
+		
+		function fuck3(input){
+			input.style.backgroundColor="red";
+		}
+		function fuck4(input){
+			input.style.backgroundColor="white";
+		}
+    </script>
+</head>
+
+<body>
+	<form >
+    	用户名<input type="text" name="username" onfocus="fuck1()" onblur="fuck2()" />
+        密码 <input type="password" name="password" onfocus="fuck1()" onblur="fuck2()" />
+       
+    </form>
+    <form>
+    	123 <input type="text" onfocus="fuck3(this)" onblur="fuck4(this)" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dom</title>
+<script type="text/javascript">		
+	function d(){
+		var ans1 = document.getElementById("k1");
+		alert(ans1);
+		var ans2 = document.getElementsByName("du");
+		alert(ans2.length);
+		alert(ans2);
+		var ans3 = document.getElementsByTagName("div");
+		alert(ans3.length);
+		alert(ans3);
+		
+		var ans4 = document.getElementsByClassName("div3");
+		alert(ans4.length);
+		alert(ans4);
+	}
+</script>
+</head>
+
+<body onload="d()">
+	<div id="k1" name="du"></div>
+    <div id="k2" name="du"</div>
+    <div class="div3"></div>
+</body>
+</html>

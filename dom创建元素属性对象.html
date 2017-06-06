@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>创建元素属性,对象,内容</title>
+	<script type="text/javascript">
+		function save(){
+		var ans1 = document.getElementById("k2");
+		//ans1.innerHTML += "<input id=f1 type=file></br>";
+		ans1.innerHTML += '<div><input type="file"><input type="button" value="删除" onclick="del(this)"/></div>';
+		}
+		function del(button){
+			var pre = document.getElementById("k2");
+			
+			var t = button.parentNode;
+			pre.removeChild(t);
+		}
+		function rmv(){
+			var f1 = document.getElementById("f1");
+			var d = document.getElementById("k2");
+			d.removeChild(f1);
+		}
+	</script>
+</head>
+
+<body>
+	
+<input id="k1" value="创建对象" type="button" onclick="save()" />
+<!--<input id="k3" value="删除对象" type="button" onclick="rmv()" />-->
+
+<div id="k2"></div>
+</body>
+</html>

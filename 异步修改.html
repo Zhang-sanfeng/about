@@ -1,0 +1,63 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+	function editRow(input){
+		var pre = input.parentNode.parentNode;
+		//获得<tr>下的所有子元素 构成集合ls
+		var ls = pre.cells;
+		if(input.value=="修改"){
+			ls[1].innerHTML = "<input type='text' value='"+ls[1].innerHTML+"' />";
+			input.value="保存";
+		}else{
+		    ls[1].innerHTML = ls[1].lastChild.value;
+			input.value="修改";
+		}
+	}
+	function delRow(input){
+		var pre = input.parentNode.parentNode;
+		
+		var index = pre.parentNode;
+		
+		//alert(pre.rowIndex); 动态获得被删除的行的下标
+		index.deleteRow(pre.rowIndex);
+	}
+	
+	function addRow(input){
+		var pre = input.parentNode.parentNode;
+		var index = pre.parentNode;
+		var ans = index.insertRow(index.rows.length-1);
+		
+		ans.innerHTML='<td>手机</td><td>100</td><td>4999</td><td><input type="button" class="roldel"  value="删除" onclick="delRow(this)" /><input type="button" id="edit1" value="修改" onclick="editRow(this)" /></td>';
+	}
+</script>
+</head>
+
+<body>
+	<table id="order">
+    	<tr class="title">
+        <td>商品名称</td>
+        <td>数量</td>
+        <td>价格</td>
+        <td>操作</td>
+        </tr>
+        <tr id="dell">
+        <td>手机</td>
+        <td>100</td>
+        <td>4999</td>
+        <td><input type="button" class="roldel"  value="删除" onclick="delRow(this)" />
+        <input type="button" id="edit1" value="修改" onclick="editRow(this)" /></td>
+        </tr>
+        <tr>	
+        	<td colspan="4" height="30px">
+            <input name="addOrder" type="button" value="增加" onclick="addRow(this)" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

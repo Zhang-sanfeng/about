@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单验证</title>
+<script type="text/javascript">
+function validateName(){
+	var name = document.getElementById("uname").value;
+	if(name==""){
+		document.getElementById("msgName").innerHTML="<font color='red'>用户名不能为空</font>";
+		return false;
+	}else{
+		document.getElementById("msgName").innerHTML="";
+		return true;
+	}
+}
+function validatePass(){
+	var name = document.getElementById("pass").value;
+	if(name==""){
+		document.getElementById("msgPass").innerHTML="<font color='red'>密码不能为空</font>";
+		return false;
+	}else{
+		document.getElementById("msgPass").innerHTML="";
+		return true;
+	}
+}
+function validatePhone(){
+	var regexp = /^1[3578][0-9]{9}$/;
+	var phone = document.getElementById("phone").value;
+	if(phone==""){
+		document.getElementById("msgPhone").innerHTML="<font color='red'>手机号不能为空</font>";
+		return false;
+	}else if(!regexp.test(phone)){
+		document.getElementById("msgPhone").innerHTML="<font color='red'>手机号格式不正确</font>";
+		return false;
+	}else{
+		document.getElementById("msgPhone").innerHTML="";
+		return true;
+	}
+}
+function validateMail(){
+	var regexp = /^[0-9A-z]+@[0-9A-z]+\.(com|cn|com\.cn)$/;
+	var email = document.getElementById("email").value;
+	if(email==""){
+		document.getElementById("msgMail").innerHTML="<font color='red'>邮箱不能为空</font>";
+		return false;
+	}else if(!regexp.test(email)){
+		document.getElementById("msgMail").innerHTML="<font color='red'>邮箱格式不正确</font>";
+		return false;
+	}else{
+		document.getElementById("msgMail").innerHTML="";
+		return true;
+	}
+}
+
+
+function validateResult(){
+	return validateName()&&validatePass()&&validatePhone()&&validateMail();
+}
+</script>
+</head>
+
+<body>
+<form action="#" method="get" onsubmit="return validateResult()">
+<h1>用户注册</h1>
+<table>
+	<tr>
+    	<td>用户名</td>
+    	<td><input name="username" id="uname" onblur="validateName()" /></td>
+    	<td><div id="msgName"></div></td>
+    </tr>
+	<tr>
+    	<td>密码</td>
+    	<td><input type="password" name="password" id="pass" onblur="validatePass()"  /></td>
+    	<td><div id="msgPass"></div></td>
+    </tr>
+	<tr>
+    	<td>手机号</td>
+    	<td><input type="text" name="phone" id="phone"  onblur="validatePhone()" /></td>
+    	<td><div id="msgPhone"></div></td>
+    </tr>
+	<tr>
+    	<td>邮箱</td>
+    	<td><input type="text" name="email" id="email"  onblur="validateMail()" /></td>
+    	<td><div id="msgMail"></div></td>
+    </tr>
+	<tr>
+    	<td></td>
+    	<td><input type="submit" value="注册"/><input type="reset" value="重置"/></td>
+    	<td></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function fuck1(){
+		alert("鼠标按下");
+	}
+	function fuck2(){
+		alert("鼠标松开");
+	}
+	function fuckin(){
+		 var s = document.getElementById("k1");
+		 s.style.borderColor="red";
+	}
+	function fuckout(input){
+		 input.style.borderColor="purple";
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="按下鼠标别松开"  onmousedown="fuck1()"/>
+    <input type="button" value="按下鼠标松开后"  onmouseup="fuck2()"/>
+    <input id="k1" type="text" onmouseover="fuckin()" onmouseout="fuckout(this)" />
+</body>
+</html>

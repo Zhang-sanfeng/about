@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+	function selectAll(input){
+		var looper = document.getElementsByClassName("u");
+		if(input.checked){
+			for(var i = 0; i < looper.length; i++){
+				looper[i].checked = true;
+				
+				looper[i].onclick = function(){
+					
+					var flag = true;
+					for(var j = 0; j < looper.length; j++){
+						if(!looper[j].checked){
+							flag = false;
+							break;
+						}
+					}
+					document.getElementById("all").checked = flag;
+				}
+			}
+			
+		}else{
+			for(var i = 0; i < looper.length; i++){
+				looper[i].checked = false;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<input type="checkbox" id="all" onclick="selectAll(this)"/>全选
+<input type="checkbox" class="u" name="uname" value="1"/>1
+<input type="checkbox" class="u" name="uname" value="2"/>2
+<input type="checkbox" class="u" name="uname" value="3"/>3
+<input type="checkbox" class="u" name="uname" value="4"/>4
+<input type="checkbox" class="u" name="uname" value="5"/>5
+</body>
+</html>

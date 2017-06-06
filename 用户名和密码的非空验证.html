@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function save(){
+		var name = document.getElementById("name").value;
+		var pass = document.getElementById("pass").value;
+		if(name==""){
+			document.getElementById("nameDiv").innerHTML = "用户名不能为空";
+			return false;
+		}else{
+			
+			document.getElementById("nameDiv").innerHTML = "";
+		}
+		if(pass==""){
+			document.getElementById("passDiv").innerHTML = "密码不能为空";
+			return false;
+		}else{
+			document.getElementById("passDiv").innerHTML = "";
+		}
+		return true;
+	}
+</script>
+
+</head>
+
+<body>
+	<form action="index.html" onsubmit="return save()"> 
+    	用户名:<input id="name" type="text" /><div id="nameDiv"></div>
+        密码 :<input id="pass" type="text" /><div id="passDiv"></div>
+        <input type="submit" value="提交"/>
+        <input type="reset" value="重置">
+    </form>
+</body>
+</html>

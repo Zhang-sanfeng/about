@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dom-4</title>
+<script type="text/javascript">
+	function save(){
+	var ans = document.getElementById("k1");
+	alert(ans.innerHTML);
+	alert(ans.innerText);
+	alert(ans.textContent);
+	
+	document.getElementById("k2").innerHTML = "<font id='font1' color=red>011</font>";
+	document.getElementById("k3").innerText = "<font color=red>022</font>";
+	document.getElementById("k4").textContent = "<font color=red>033</font>";
+	
+	font1 = document.getElementById("font1");
+	font1.setAttribute("color", "blue");
+	font1.style.backgroundColor = "yellow";
+	
+	}
+</script>
+</head>
+
+<body onload="save()">
+	<div id="k1"><h1>123456</h1></div>
+    
+    <div id="k2"><h1>001</h1></div>
+    <div id="k3"><h1>002</h1></div>
+    <div id="k4"><h1>003</h1></div>
+</body>
+</html>

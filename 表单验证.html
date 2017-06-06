@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单验证</title>
+<script type="text/javascript">
+	function TestUserName(){
+		var judge = document.getElementById("user");
+		 if(judge.value == ""){
+			 document.getElementById("userDiv").innerHTML="<font color='red'>用户名不能为空</font>";
+			 return false;
+		 }else{
+			  document.getElementById("userDiv").innerHTML="";
+			  return true;
+		 }
+	}
+	function TestPassword(){
+		var judge = document.getElementById("pass");
+		 if(judge.value == ""){
+			 document.getElementById("pwdDiv").innerHTML="<font color='red'>密码不能为空</font>";
+			 return false;
+		 }else{
+			  document.getElementById("pwdDiv").innerHTML="";
+			  return true;
+		 }
+	}
+	function TestPhone(){
+		var reg = /^1[3578][1-9]{9}$/;
+		var judge = document.getElementById("phone");
+		if(judge.value == ""){
+			 document.getElementById("phoneDiv").innerHTML="<font color='red'>手机号不能为空</font>";
+			 return false;
+		}else if(!reg.test(judge.value)){
+			document.getElementById("phoneDiv").innerHTML="<font color='red'>手机号格式错误</font>";
+			return false;
+		}else{
+			document.getElementById("phoneDiv").innerHTML="";
+			return true;
+		}
+	}
+	function TestEmail(){
+		var reg = /^[0-9A-z]+@[0-9A-z]+\.(com|cn|com.cn)$/;
+		var judge = document.getElementById("email");
+		if(judge.value == ""){
+			document.getElementById("emailDiv").innerHTML="<font color='red'>邮箱不能为空</font>";
+		return false;	
+		}else if(!reg.test(judge.value)){
+			document.getElementById("emailDiv").innerHTML="<font color='red'>邮箱格式错误</font>";
+			return false;
+		}else{
+			document.getElementById("emailDiv").innerHTML="";
+			return true;
+		}
+	}
+	function cleart(){
+		document.getElementById("userDiv").innerHTML="";
+		document.getElementById("pwdDiv").innerHTML="";
+		document.getElementById("phoneDiv").innerHTML="";
+		document.getElementById("emailDiv").innerHTML="";
+	}
+	function Isok(){
+		return TestUserName()&&TestUserName()&&TestPhone()&&TestEmail();
+	}
+</script>
+</head>
+
+<body>
+
+<form action="#" onclick="Isok()">
+	<h1>用户注册</h1>
+	<table>
+    	<tr>
+        	<td>用户名</td>
+        	<td><input id="user" type="text" name="username" onblur="TestUserName()"/></td>
+            <td><div id="userDiv"></div></td>
+        </tr>
+        <tr>
+        	<td>密码</td>
+        	<td><input id="pass" type="password" name="password" onblur="TestPassword()"/></td>
+            <td><div id="pwdDiv"></div></td>
+        </tr>
+        <tr>
+        	<td>手机号</td>
+        	<td><input id="phone" type="text" name="phoneNo" onblur="TestPhone()" /></td>
+            <td><div id="phoneDiv"></div></td>
+        </tr>
+        <tr>
+        	<td>邮箱</td>
+        	<td><input id="email" type="text" name="emailaddress"  onblur="TestEmail()"/></td>
+            <td><div id="emailDiv"></div></td>
+        </tr>
+        <tr>
+        	<td><input type="submit" value="注册"  /></td>
+            <td><input type="reset" value="重置"  onclick="cleart()"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

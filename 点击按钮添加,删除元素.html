@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function FUCK(){
+		var ans = document.getElementById("fuck");
+		ans.innerHTML += '<div><input type="file" /><input type="button" value="删除" onclick="del(this)"></div>';
+			
+	}
+	function del(ku){
+		var pre = document.getElementById("fuck");
+		var te = ku.parentNode;
+		pre.removeChild(te);
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="添加元素" onclick="FUCK()">
+  
+    <div id="fuck"></div>
+</body>
+</html>

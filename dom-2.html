@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dom-2</title>
+<script type="text/javascript">
+	function d(){
+		var ans1 = document.lastChild;
+		alert(ans1);
+		var ans2 = ans1.firstChild;
+		alert(ans2);
+		var ans3 = ans1.lastChild;
+		alert(ans3);
+		var ans4 = ans3.firstChild;
+		alert(ans4);
+		
+		var nodes = ans3.childNodes;
+		alert(nodes.length);
+		
+		var ans5 = document.getElementById("k1");
+		
+		var div1 = ans5.getElementsByTagName("div");
+		alert(div1[0]);
+		
+		var div2 = ans5.getElementsByClassName("divClass");
+		alert(div2[0]);
+	}
+</script>
+</head>
+	
+<body onload="d()">
+	<div id="k1">
+    	<div id="k2" class="divClass"></div>
+    </div>
+    <div id="k2"></div>
+</body>
+</html>

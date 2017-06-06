@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function getInfo(){
+		var str = "";
+		for(var index in navigator){
+			 str += index+":"+navigator[index]+"<br/>";
+		}
+		
+		document.getElementById("div").innerHTML=str;
+	}
+	function getName(){
+		if(navigator.userAgent.indexOf("MSIE")>-1){
+			alert("IE浏览器")
+		}else{
+			alert("非IE浏览器");
+		}
+	}
+</script>
+</head>
+
+<body onload="getInfo()">
+<input type="button" value="获取浏览器名称" onclick="getName()" />
+<div id="div" ></div>
+</body>
+</html>

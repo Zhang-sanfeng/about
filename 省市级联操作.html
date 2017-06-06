@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function fuck(obj){
+		var s = document.getElementById("area");
+		if(obj.value == 1){
+		s.innerHTML = '<option>请选择</option><option>海淀区</option><option>朝阳区</option><option>东城区</option><option>西城区</option>';
+		}else if(obj.value == 2){
+			s.innerHTML = '<option>请选择</option><option>01区</option><option>02区</option><option>03区</option><option>04区</option>';
+		}
+	}
+	
+		function fuckforie(obj){
+		var s = document.getElementById("karea");
+		if(obj.value == 1){
+		s.innerHTML = '<select id="city"><option>请选择</option><option>海淀区</option><option>朝阳区</option><option>东城区</option><option>西城区</option></select>';
+		}else if(obj.value == 2){
+			s.innerHTML = '<select id="city"><option>请选择</option><option>01区</option><option>02区</option><option>03区</option><option>04区</option></select>';
+		}
+	  }
+	  
+	  function forfuck(obj){
+		var s = document.getElementById("karea");
+		var beijing=["海淀","朝阳","东城","西城"];
+		var shanghai=["1","2","3","4"];
+		var str = '<select id="city">';
+		if(obj.value == 1){
+			for(var i = 0; i < beijing.length; i++){
+			   str += '<option value="'+i+'"> '+ beijing[i]+'</option>';
+			}
+		}else if(obj.value == 2){
+			 for(var i = 0; i < shanghai.length; i++){
+			   str += '<option value="'+i+'"> '+ shanghai[i]+'</option>';
+			}
+		}
+		
+		str += "</select>";
+		s.innerHTML = str;
+	  }
+	  
+	   function forfuckall(obj){
+		var s = document.getElementById("karea");
+		var cityall=[["海淀","朝阳","东城","西城"],["11","22","33","44"]];
+		var str = '<select id="city">';
+		var index = parseInt(obj.value)-1;
+		for(var i = 0; i < cityall[index].length; i++){
+			str += '<option value="'+i+'"> '+cityall[index][i]+'</option>';
+		}
+		str += "</select>";
+		s.innerHTML = str;
+	  }
+	
+</script>
+</head>
+
+<body onload="forfuckall(document.getElementById('city'))">
+	<select id="city" onchange="forfuckall(this)">
+    	<option value="0" >请选择</option>
+        <option value="1" >北京</option>
+        <option value="2" >上海</option>
+    </select>
+    <div id="karea" style="display:inline">
+    <select id="area">
+    	<option value="0" >请选择</option>
+    </select>
+    </div>
+</body>
+</html>

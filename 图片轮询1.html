@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片轮询</title>
+<style type="text/css">
+html,body{
+	margin:0;
+	padding:0;
+}
+img{
+	width:600px;
+	height:400px;
+}
+.div{
+	position:absolute;
+	top:0;
+}
+#center{
+	width:600px;
+	height:400px;
+	position:relative;
+	margin:0 auto;
+}
+</style>
+
+<script type="text/javascript">
+	// 声明一个全局标量index用于保存要显示的图片的下标
+	var index = 0;
+	/*
+	图片轮询的原理：将所有的图片先隐藏，指定显示一个图片
+	*/
+	function imgPolling(){
+		// 得到图片所在层的集合
+		var imgs = document.getElementsByClassName("div");
+		// 循环隐藏所有的图片
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].style.display = "none";
+		}
+		imgs[index].style.display="inline";
+		index=(index+1)%4;
+	}
+	var intervalId;
+	function run(){
+		intervalId = setInterval(imgPolling,1000);
+	}
+	
+	function stopPolling(){
+		clearInterval(intervalId);
+	}
+</script>
+</head>
+
+<body onload="run()">
+<div id="center">
+<div class="div" name="imgDiv"><img src="images/001.jpg" /></div>
+<div class="div" name="imgDiv"><img src="images/002.jpg" /></div>
+<div class="div" name="imgDiv"><img src="images/003.jpg" /></div>
+<div class="div" name="imgDiv"><img src="images/004.jpg" /></div>
+</div>
+<input type="button" value="开始轮询" onclick="run()"/>
+<input type="button" value="停止轮询" onclick="stopPolling()"/>
+</body>
+</html>

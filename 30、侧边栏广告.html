@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>侧边栏广告</title>
+<script type="text/javascript">
+// 声明广告层的引用
+var advert;
+// 广告层原top属性值
+var advertTop = 100;
+function init(){
+	// 获取广告层的元素对象
+	advert = document.getElementById("advert");
+	// 判断是否为IE浏览器
+	if(navigator.userAgent.indexOf("MSIE")==-1){ //Firefox或谷歌浏览器
+		// 获取广告元素的当前的top值
+		advertTop=parseInt(document.defaultView.getComputedStyle(advert,null).top);
+	}else{ //IE浏览器
+		// 获取广告元素的当前的top
+		advertTop=parseInt(advert.currentStyle.top);
+	}
+}
+function run(){
+	// 声明用于存储滚动条滚动高度的变量
+	var srTop = 0;
+	if(navigator.userAgent.indexOf("MSIE")==-1){ //Firefox或谷歌浏览器
+		srTop = document.body.scrollTop;
+	}else{ //IE浏览器
+		if(document.body){
+		// 如果页面没有文档声明，IE使用document.body获取scrollTop等
+		srTop = document.body.scrollTop;
+		
+		// 如果页面有文档声明，IE使用document.body获取scrollTop等的值为0
+		// 则要使用document.documentElement获取scrollTop等
+		if(srTop==0){
+			srTop = document.documentElement.scrollTop;
+		}
+		}else{
+			srTop = document.documentElement.scrollTop;
+		}
+	}
+	// 广告层的初始高度 + 滚动条的滚动高度，并赋值给广告层的top属性
+	advert.style.top=advertTop+parseInt(srTop) + "px";
+}
+window.onscroll = run;
+</script>
+</head>
+
+<!-- IE不支持在body标签中使用onscroll事件调用方法（测试环境：win7+IE9） -->
+<body onload="init()">
+
+<div id="advert" style="position:absolute;background-color:blue;width:100px;height:100px;left:0;top:100px;z-index:100;"></div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

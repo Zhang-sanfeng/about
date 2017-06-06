@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dom-3</title>
+<script type="text/javascript">
+	function save(){
+		var ans = document.getElementById("username");
+		alert(ans.value);
+		
+		var ans1 = document.getElementById("k1");
+		alert(ans1.getAttribute("value"));
+	}
+</script>	
+</head>
+
+<body onload="save()">
+	<input id="username" type="text" value="123456" />
+    <p id="k1" value="qwer"></p>
+</body>
+</html>
